@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Student_ElectionModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Student_Election.dbo.Admin' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Admin">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="userid" Type="varchar" MaxLength="255" />
+    <Property Name="password" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="Candidate">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="Election">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="ElectionCandidates">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ElectionId" Type="int" />
+    <Property Name="CandidatId" Type="int" />
+  </EntityType>
+  <EntityType Name="ElectionVotes">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ElectionId" Type="int" />
+    <Property Name="CandidatId" Type="int" />
+    <Property Name="StudentRollNumber" Type="int" />
+  </EntityType>
+  <EntityType Name="Student">
+    <Key>
+      <PropertyRef Name="rollno" />
+    </Key>
+    <Property Name="rollno" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="studentname" Type="varchar" MaxLength="255" />
+    <Property Name="DOB" Type="datetime2" Precision="7" />
+    <Property Name="branch" Type="varchar" MaxLength="255" />
+    <Property Name="yearofjoining" Type="datetime2" Precision="7" />
+    <Property Name="mobilenumber" Type="int" />
+    <Property Name="password" Type="int" />
+  </EntityType>
+  <Association Name="FK__ElectionC__Candi__4E88ABD4">
+    <End Role="Candidate" Type="Self.Candidate" Multiplicity="0..1" />
+    <End Role="ElectionCandidates" Type="Self.ElectionCandidates" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Candidate">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ElectionCandidates">
+        <PropertyRef Name="CandidatId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ElectionC__Elect__4F7CD00D">
+    <End Role="Election" Type="Self.Election" Multiplicity="0..1" />
+    <End Role="ElectionCandidates" Type="Self.ElectionCandidates" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Election">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ElectionCandidates">
+        <PropertyRef Name="ElectionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ElectionV__Candi__52593CB8">
+    <End Role="ElectionCandidates" Type="Self.ElectionCandidates" Multiplicity="0..1" />
+    <End Role="ElectionVotes" Type="Self.ElectionVotes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ElectionCandidates">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ElectionVotes">
+        <PropertyRef Name="CandidatId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ElectionV__Elect__534D60F1">
+    <End Role="Election" Type="Self.Election" Multiplicity="0..1" />
+    <End Role="ElectionVotes" Type="Self.ElectionVotes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Election">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ElectionVotes">
+        <PropertyRef Name="ElectionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ElectionV__Stude__5441852A">
+    <End Role="Student" Type="Self.Student" Multiplicity="0..1" />
+    <End Role="ElectionVotes" Type="Self.ElectionVotes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Student">
+        <PropertyRef Name="rollno" />
+      </Principal>
+      <Dependent Role="ElectionVotes">
+        <PropertyRef Name="StudentRollNumber" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Student_ElectionModelStoreContainer">
+    <EntitySet Name="Candidate" EntityType="Self.Candidate" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Election" EntityType="Self.Election" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ElectionCandidates" EntityType="Self.ElectionCandidates" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ElectionVotes" EntityType="Self.ElectionVotes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Student" EntityType="Self.Student" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Admin" EntityType="Self.Admin" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Admin].[id] AS [id], 
+    [Admin].[userid] AS [userid], 
+    [Admin].[password] AS [password]
+    FROM [dbo].[Admin] AS [Admin]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK__ElectionC__Candi__4E88ABD4" Association="Self.FK__ElectionC__Candi__4E88ABD4">
+      <End Role="Candidate" EntitySet="Candidate" />
+      <End Role="ElectionCandidates" EntitySet="ElectionCandidates" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ElectionC__Elect__4F7CD00D" Association="Self.FK__ElectionC__Elect__4F7CD00D">
+      <End Role="Election" EntitySet="Election" />
+      <End Role="ElectionCandidates" EntitySet="ElectionCandidates" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ElectionV__Candi__52593CB8" Association="Self.FK__ElectionV__Candi__52593CB8">
+      <End Role="ElectionCandidates" EntitySet="ElectionCandidates" />
+      <End Role="ElectionVotes" EntitySet="ElectionVotes" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ElectionV__Elect__534D60F1" Association="Self.FK__ElectionV__Elect__534D60F1">
+      <End Role="Election" EntitySet="Election" />
+      <End Role="ElectionVotes" EntitySet="ElectionVotes" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ElectionV__Stude__5441852A" Association="Self.FK__ElectionV__Stude__5441852A">
+      <End Role="Student" EntitySet="Student" />
+      <End Role="ElectionVotes" EntitySet="ElectionVotes" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

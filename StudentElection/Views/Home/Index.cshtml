@@ -1,0 +1,22 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <h4 style="color:white">Online Student Election System</h4>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                <li>@Html.ActionLink("Admin", "Login", "Admin")</li>
+                <li>@Html.ActionLink("Student", "Login", "Student")</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <img src="~/vote image1.jpg" height="570" width="1270" />
+</div>

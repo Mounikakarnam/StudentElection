@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Student_ElectionModelStoreContainer" CdmEntityContainer="Student_ElectionEntities">
+    <EntitySetMapping Name="Admins">
+      <EntityTypeMapping TypeName="Student_ElectionModel.Admin">
+        <MappingFragment StoreEntitySet="Admin">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="userid" ColumnName="userid" />
+          <ScalarProperty Name="password" ColumnName="password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Candidates">
+      <EntityTypeMapping TypeName="Student_ElectionModel.Candidate">
+        <MappingFragment StoreEntitySet="Candidate">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Elections">
+      <EntityTypeMapping TypeName="Student_ElectionModel.Election">
+        <MappingFragment StoreEntitySet="Election">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ElectionCandidates">
+      <EntityTypeMapping TypeName="Student_ElectionModel.ElectionCandidate">
+        <MappingFragment StoreEntitySet="ElectionCandidates">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="ElectionId" ColumnName="ElectionId" />
+          <ScalarProperty Name="CandidatId" ColumnName="CandidatId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ElectionVotes">
+      <EntityTypeMapping TypeName="Student_ElectionModel.ElectionVote">
+        <MappingFragment StoreEntitySet="ElectionVotes">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="ElectionId" ColumnName="ElectionId" />
+          <ScalarProperty Name="CandidatId" ColumnName="CandidatId" />
+          <ScalarProperty Name="StudentRollNumber" ColumnName="StudentRollNumber" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Students">
+      <EntityTypeMapping TypeName="Student_ElectionModel.Student">
+        <MappingFragment StoreEntitySet="Student">
+          <ScalarProperty Name="rollno" ColumnName="rollno" />
+          <ScalarProperty Name="studentname" ColumnName="studentname" />
+          <ScalarProperty Name="DOB" ColumnName="DOB" />
+          <ScalarProperty Name="branch" ColumnName="branch" />
+          <ScalarProperty Name="yearofjoining" ColumnName="yearofjoining" />
+          <ScalarProperty Name="mobilenumber" ColumnName="mobilenumber" />
+          <ScalarProperty Name="password" ColumnName="password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

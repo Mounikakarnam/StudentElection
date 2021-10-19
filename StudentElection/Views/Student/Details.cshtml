@@ -1,0 +1,66 @@
+﻿@model StudentElection.Models.Student
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Student</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.studentname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.studentname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DOB)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DOB)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.branch)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.branch)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.yearofjoining)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.yearofjoining)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.mobilenumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.mobilenumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.password)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.password)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.rollno }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

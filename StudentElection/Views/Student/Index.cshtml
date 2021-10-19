@@ -1,0 +1,13 @@
+﻿@model StudentElection.Models.Student
+
+@{ ViewBag.Title = "Index"; }
+
+<h2>Index</h2>
+
+<div class="navbar-collapse collapse">
+    <ul class="nav navbar-nav navbar-right">
+        <li>@Html.ActionLink("Elections ", "Elections", "Student")</li>
+        <li>@Html.ActionLink("Profile", "Edit", "Student")</li>
+    </ul>
+</div>
+

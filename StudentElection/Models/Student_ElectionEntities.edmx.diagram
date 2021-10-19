@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="a6e9276cb6ce40a8975a004b8a20e715" Name="Diagram1">
+        <EntityTypeShape EntityType="Student_ElectionModel.Admin" Width="1.5" PointX="5.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Student_ElectionModel.Candidate" Width="1.5" PointX="0.75" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Student_ElectionModel.Election" Width="1.5" PointX="0.75" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Student_ElectionModel.ElectionCandidate" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="Student_ElectionModel.ElectionVote" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="Student_ElectionModel.Student" Width="1.5" PointX="3" PointY="4.875" IsExpanded="true" />
+        <AssociationConnector Association="Student_ElectionModel.FK__ElectionC__Candi__29572725" ManuallyRouted="false" />
+        <AssociationConnector Association="Student_ElectionModel.FK__ElectionC__Elect__2A4B4B5E" ManuallyRouted="false" />
+        <AssociationConnector Association="Student_ElectionModel.FK__ElectionV__Elect__2E1BDC42" ManuallyRouted="false" />
+        <AssociationConnector Association="Student_ElectionModel.FK__ElectionV__Candi__2D27B809" ManuallyRouted="false" />
+        <AssociationConnector Association="Student_ElectionModel.FK__ElectionV__Stude__2F10007B" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
